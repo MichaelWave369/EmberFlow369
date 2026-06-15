@@ -1,8 +1,8 @@
 {
   "name": "emberflow369",
-  "version": "0.3.0-alpha.0",
+  "version": "0.4.0-alpha.0",
   "private": false,
-  "description": "Fire + Flood Resilience Mesh with action cards, receipt-ledger discipline, and a local dashboard cockpit.",
+  "description": "Fire + Flood Resilience Mesh with action cards, receipt-ledger discipline, a local dashboard cockpit, and exportable evidence bundles.",
   "type": "module",
   "scripts": {
     "typecheck": "tsc --noEmit",
