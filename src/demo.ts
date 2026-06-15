@@ -1,7 +1,7 @@
-import { createActionCard } from './actionCards';
-import { mockSignals } from './mockSignals';
-import { createHazardReceipt } from './receipts';
-import { calculateRisk } from './risk';
+import { createActionCard } from './actionCards.js';
+import { mockSignals } from './mockSignals.js';
+import { createHazardReceipt } from './receipts.js';
+import { calculateRisk } from './risk.js';
 
 function main(): void {
   console.log('EmberFlow369 v0.2 mock signal -> risk -> action -> receipt demo');
