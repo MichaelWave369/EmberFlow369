@@ -1,12 +1,14 @@
 {
   "name": "emberflow369",
-  "version": "0.1.0",
+  "version": "0.2.0-alpha.0",
   "private": false,
   "description": "Fire + Flood Resilience Mesh with action cards and receipt-ledger discipline.",
   "type": "module",
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json",
+    "demo": "npm run build && node dist/demo.js",
+    "check": "npm run typecheck && npm run build"
   },
   "keywords": [
     "wildfire",
