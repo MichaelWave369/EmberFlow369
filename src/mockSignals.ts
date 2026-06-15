@@ -1,4 +1,4 @@
-import type { HazardSignal } from './types';
+import type { HazardSignal } from './types.js';
 
 export const mockSignals: HazardSignal[] = [
   {
