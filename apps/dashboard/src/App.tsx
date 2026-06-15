@@ -8,6 +8,10 @@ const stateLabels: Record<DashboardRiskState, string> = {
   black: 'Black / Official life-safety priority'
 };
 
+function formatToken(value: string) {
+  return value.replace(/_/g, ' ');
+}
+
 const sortedScenarios = [...dashboardScenarios].sort((a, b) => b.riskScore - a.riskScore);
 
 function StatePill({ state }: { state: DashboardRiskState }) {
@@ -21,7 +25,7 @@ function SignalCard({ scenario }: { scenario: DashboardScenario }) {
     <article className="signal-card">
       <div className="card-header">
         <div>
-          <p className="eyebrow">{signal.hazardKind.replace('_', ' ')}</p>
+          <p className="eyebrow">{formatToken(signal.hazardKind)}</p>
           <h3>{signal.zoneName}</h3>
         </div>
         <StatePill state={scenario.riskState} />
@@ -32,7 +36,7 @@ function SignalCard({ scenario }: { scenario: DashboardScenario }) {
       <div className="metric-grid" aria-label="Risk factors">
         <div><span>Risk score</span><strong>{scenario.riskScore}</strong></div>
         <div><span>Confidence</span><strong>{Math.round(signal.confidence * 100)}%</strong></div>
-        <div><span>Official status</span><strong>{signal.officialStatus.replaceAll('_', ' ')}</strong></div>
+        <div><span>Official status</span><strong>{formatToken(signal.officialStatus)}</strong></div>
         <div><span>Observed</span><strong>{new Date(signal.observedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</strong></div>
       </div>
 
