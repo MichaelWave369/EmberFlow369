@@ -1,14 +1,16 @@
 {
   "name": "emberflow369",
-  "version": "0.2.0-alpha.0",
+  "version": "0.3.0-alpha.0",
   "private": false,
-  "description": "Fire + Flood Resilience Mesh with action cards and receipt-ledger discipline.",
+  "description": "Fire + Flood Resilience Mesh with action cards, receipt-ledger discipline, and a local dashboard cockpit.",
   "type": "module",
   "scripts": {
     "typecheck": "tsc --noEmit",
     "build": "tsc -p tsconfig.json",
     "demo": "npm run build && node dist/demo.js",
-    "check": "npm run typecheck && npm run build"
+    "check": "npm run typecheck && npm run build",
+    "dashboard": "npm --prefix apps/dashboard run dev",
+    "dashboard:build": "npm --prefix apps/dashboard run build"
   },
   "keywords": [
     "wildfire",
@@ -16,7 +18,8 @@
     "resilience",
     "receipts",
     "california",
-    "emergency-preparedness"
+    "emergency-preparedness",
+    "dashboard"
   ],
   "license": "UNLICENSED",
   "devDependencies": {
