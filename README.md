@@ -26,17 +26,18 @@ Risk = Hazard x Exposure x Vulnerability x TimePressure / VerifiedReadiness
 
 The formula is deliberately simple for the first prototype. Every factor should be inspectable, explainable, logged, and improved through after-action review.
 
-## Current build: v0.2-alpha
+## Current build: v0.3-alpha dashboard
 
-The current runnable path is:
+The current runnable paths are:
 
 ```text
 mock hazard signal -> risk score -> action card -> receipt
+mock hazard signal -> visual dashboard card -> receipt/source tags
 ```
 
-It uses mock data only. The goal is to prove the local reasoning loop and receipt shape before connecting live public data sources.
+The dashboard uses mock data only. The goal is to prove the local reasoning loop, action-card shape, and receipt visibility before connecting live public data sources.
 
-## Run the demo
+## Run the engine demo
 
 ```bash
 npm install
@@ -50,6 +51,23 @@ The demo prints wildfire, flood, burn-scar/debris-flow, and road-closure mock sc
 - recommended actions
 - an auditable hazard receipt
 
+## Run the dashboard
+
+```bash
+npm install
+npm run dashboard
+```
+
+The v0.3 dashboard renders mock Northern California hazard zones with:
+
+- active signal cards
+- risk score and risk state
+- official-status override display
+- action-card steps
+- source tags
+- receipt IDs
+- safety boundary panel
+
 ## What EmberFlow369 is
 
 EmberFlow369 is a repo-ready design and prototype foundation for:
@@ -62,6 +80,7 @@ EmberFlow369 is a repo-ready design and prototype foundation for:
 - community witness reports
 - receipt ledger records
 - post-fire to winter-flood continuity tracking
+- local dashboard visualization
 
 ## What EmberFlow369 is not
 
@@ -85,6 +104,19 @@ Official life-safety instructions must always override local suggestions and mod
 ├── DATA_SOURCES.md
 ├── ROADMAP.md
 ├── CONTRIBUTING.md
+├── apps/
+│   └── dashboard/
+│       ├── README.md
+│       ├── index.html
+│       ├── package.json
+│       ├── tsconfig.json
+│       ├── vite.config.ts
+│       └── src/
+│           ├── App.tsx
+│           ├── demoData.ts
+│           ├── main.tsx
+│           ├── styles.css
+│           └── vite-env.d.ts
 ├── data/
 │   └── mock-signals.json
 ├── docs/
@@ -93,7 +125,10 @@ Official life-safety instructions must always override local suggestions and mod
 │   ├── RECEIPT_LEDGER.md
 │   ├── MVP_BACKLOG.md
 │   ├── SPRINT_v0.2.md
-│   └── DATA_MODEL_v0.2.md
+│   ├── DATA_MODEL_v0.2.md
+│   ├── DASHBOARD_v0.3.md
+│   └── sprints/
+│       └── v0.3-alpha-dashboard.md
 ├── schemas/
 │   ├── action-card.schema.json
 │   ├── hazard-receipt.schema.json
@@ -125,9 +160,9 @@ See [`CLAIMS.md`](CLAIMS.md) and [`SAFETY.md`](SAFETY.md).
 
 ## Project status
 
-Current status: **v0.2-alpha mock pipeline**
+Current status: **v0.3-alpha dashboard prototype**
 
-Next milestone: a tiny local dashboard that renders the demo output as cards, receipts, and zone status panels.
+Next milestone: connect the dashboard to shared engine output and add JSON receipt export from the UI.
 
 ## License
 
