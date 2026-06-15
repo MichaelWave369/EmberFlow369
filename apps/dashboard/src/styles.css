@@ -31,6 +31,7 @@ button, input, textarea, select {
 
 .hero-panel,
 .signal-card,
+.export-panel,
 .summary-grid > div,
 .safety-panel {
   border: 1px solid rgba(148, 163, 184, 0.28);
@@ -58,6 +59,7 @@ button, input, textarea, select {
 }
 
 h1,
+h2,
 h3,
 h4,
 p {
@@ -70,6 +72,13 @@ h1 {
   font-size: clamp(2.3rem, 6vw, 5.5rem);
   line-height: 0.92;
   letter-spacing: -0.06em;
+}
+
+h2 {
+  margin-bottom: 0.55rem;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
 }
 
 h3 {
@@ -154,6 +163,42 @@ h3 {
   content: '→';
   margin-left: 0.7rem;
   color: #fbbf24;
+}
+
+.export-panel {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.4rem;
+  border-color: rgba(125, 211, 252, 0.34);
+  border-radius: 26px;
+  padding: 1.25rem;
+}
+
+.export-panel p {
+  max-width: 760px;
+  margin-bottom: 0;
+  color: #cbd5e1;
+}
+
+.export-button {
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.85rem 1.05rem;
+  background: #fbbf24;
+  color: #0f172a;
+  cursor: pointer;
+  font-weight: 950;
+  box-shadow: 0 16px 40px rgba(251, 191, 36, 0.2);
+}
+
+.export-button:hover,
+.export-button:focus-visible {
+  background: #fcd34d;
+  outline: 3px solid rgba(125, 211, 252, 0.35);
+  outline-offset: 3px;
 }
 
 .cards-grid {
@@ -269,6 +314,11 @@ code {
     grid-template-columns: 1fr;
   }
 
+  .export-panel {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
   .metric-grid,
   .receipt-box {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -282,9 +332,14 @@ code {
   }
 
   .hero-panel,
-  .signal-card {
+  .signal-card,
+  .export-panel {
     border-radius: 20px;
     padding: 1rem;
+  }
+
+  .export-button {
+    width: 100%;
   }
 
   .card-header {
