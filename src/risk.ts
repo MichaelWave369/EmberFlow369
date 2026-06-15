@@ -1,4 +1,4 @@
-import type { OfficialStatus, RiskInputs, RiskResult, RiskState } from './types';
+import type { OfficialStatus, RiskInputs, RiskResult, RiskState } from './types.js';
 
 const MIN_READINESS = 0.1;
 
