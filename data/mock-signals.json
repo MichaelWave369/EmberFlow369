@@ -1,0 +1,86 @@
+[
+  {
+    "id": "mock_fire_ridge_001",
+    "observedAt": "2026-06-15T20:00:00.000Z",
+    "hazardKind": "wildfire",
+    "zoneId": "zone_home_rv_norcal",
+    "summary": "Mock ridge fire signal near a household/RV zone with moderate exposure and rising time pressure.",
+    "sourceKind": "mock",
+    "sourceLabel": "Mock wildfire signal for local demo only",
+    "sourceIds": ["mock:fire-camera:ridge-001", "mock:weather:wind-001"],
+    "claimTags": ["estimated", "inferred"],
+    "confidence": "observed",
+    "officialStatus": "none",
+    "metrics": {
+      "hazard": 2.4,
+      "exposure": 1.8,
+      "vulnerability": 1.4,
+      "timePressure": 1.9,
+      "verifiedReadiness": 1.1,
+      "officialStatus": "none"
+    }
+  },
+  {
+    "id": "mock_flood_creek_001",
+    "observedAt": "2026-06-15T20:05:00.000Z",
+    "hazardKind": "flood",
+    "zoneId": "zone_low_road_creek",
+    "summary": "Mock creek rise signal near a low road crossing after heavy rainfall.",
+    "sourceKind": "mock",
+    "sourceLabel": "Mock creek gauge and rainfall signal for local demo only",
+    "sourceIds": ["mock:gauge:creek-001", "mock:rain:cell-001"],
+    "claimTags": ["sensor", "estimated"],
+    "confidence": "multi-source",
+    "officialStatus": "watch",
+    "metrics": {
+      "hazard": 2.2,
+      "exposure": 2.1,
+      "vulnerability": 1.6,
+      "timePressure": 1.7,
+      "verifiedReadiness": 0.9,
+      "officialStatus": "watch"
+    }
+  },
+  {
+    "id": "mock_debris_burnscar_001",
+    "observedAt": "2026-06-15T20:10:00.000Z",
+    "hazardKind": "debris_flow",
+    "zoneId": "zone_burnscar_canyon",
+    "summary": "Mock post-fire burn-scar runoff risk with steep terrain and limited readiness.",
+    "sourceKind": "mock",
+    "sourceLabel": "Mock burn-scar continuity signal for local demo only",
+    "sourceIds": ["mock:burnscar:canyon-001", "mock:rain:intensity-002"],
+    "claimTags": ["estimated", "forecast", "inferred"],
+    "confidence": "observed",
+    "officialStatus": "none",
+    "metrics": {
+      "hazard": 2.7,
+      "exposure": 2.4,
+      "vulnerability": 2.0,
+      "timePressure": 2.2,
+      "verifiedReadiness": 0.8,
+      "officialStatus": "none"
+    }
+  },
+  {
+    "id": "mock_road_closure_001",
+    "observedAt": "2026-06-15T20:15:00.000Z",
+    "hazardKind": "road",
+    "zoneId": "zone_evacuate_route_a",
+    "summary": "Mock road-closure status affecting an evacuation or supply route.",
+    "sourceKind": "mock",
+    "sourceLabel": "Mock road status signal for local demo only",
+    "sourceIds": ["mock:road:route-a-001"],
+    "claimTags": ["official"],
+    "confidence": "official-confirmed",
+    "officialStatus": "road_closure",
+    "metrics": {
+      "hazard": 1.5,
+      "exposure": 2.3,
+      "vulnerability": 1.8,
+      "timePressure": 2.0,
+      "verifiedReadiness": 1.0,
+      "officialStatus": "road_closure"
+    }
+  }
+]
