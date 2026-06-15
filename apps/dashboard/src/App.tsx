@@ -1,4 +1,5 @@
 import { dashboardScenarios, type DashboardRiskState, type DashboardScenario } from './demoData';
+import { buildReceiptExportBundle, downloadReceiptExport } from './exportBundle';
 
 const stateLabels: Record<DashboardRiskState, string> = {
   green: 'Green / Normal',
@@ -70,11 +71,15 @@ export function App() {
   const receiptCount = sortedScenarios.length;
   const activeZones = new Set(sortedScenarios.map((scenario) => scenario.signal.zoneName)).size;
 
+  const handleReceiptExport = () => {
+    downloadReceiptExport(buildReceiptExportBundle(sortedScenarios));
+  };
+
   return (
     <main className="dashboard-shell">
       <section className="hero-panel">
         <div>
-          <p className="eyebrow">EmberFlow369 v0.3-alpha</p>
+          <p className="eyebrow">EmberFlow369 v0.4-alpha</p>
           <h1>Fire + Flood Resilience Cockpit</h1>
           <p className="hero-copy">
             A local-first visual demo of the EmberFlow369 loop: sense, fuse, localize, act, verify, and learn.
@@ -98,6 +103,20 @@ export function App() {
         <span>Risk score</span>
         <span>Action card</span>
         <span>Receipt</span>
+        <span>Export bundle</span>
+      </section>
+
+      <section className="export-panel" aria-label="Receipt export">
+        <div>
+          <p className="eyebrow">Receipt export</p>
+          <h2>Download the current mock evidence bundle</h2>
+          <p>
+            Exports the visible dashboard scenarios as JSON with action cards, receipt records, source IDs, claim tags, raw mock signals, and the safety boundary.
+          </p>
+        </div>
+        <button className="export-button" type="button" onClick={handleReceiptExport}>
+          Export receipts JSON
+        </button>
       </section>
 
       <section className="cards-grid" aria-label="Hazard action cards">
