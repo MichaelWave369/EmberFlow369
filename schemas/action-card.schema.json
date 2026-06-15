@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MichaelWave369/EmberFlow369/schemas/action-card.schema.json",
+  "title": "EmberFlow369 Action Card",
+  "type": "object",
+  "required": ["id", "createdAt", "zoneId", "type", "riskState", "title", "body", "sourceIds", "confidence", "officialStatus"],
+  "properties": {
+    "id": { "type": "string" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "expiresAt": { "type": ["string", "null"], "format": "date-time" },
+    "zoneId": { "type": "string" },
+    "type": {
+      "type": "string",
+      "enum": ["watch", "prepare", "avoid", "verify", "official_instruction", "after_action"]
+    },
+    "riskState": {
+      "type": "string",
+      "enum": ["green", "yellow", "orange", "red", "black"]
+    },
+    "title": { "type": "string" },
+    "body": { "type": "string" },
+    "recommendedActions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "sourceIds": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["unverified", "observed", "multi-source", "official-confirmed", "stale", "superseded"]
+    },
+    "officialStatus": {
+      "type": "string",
+      "enum": ["none", "watch", "warning", "order", "shelter_in_place", "road_closure", "unknown"]
+    },
+    "receiptId": { "type": ["string", "null"] },
+    "disclaimer": { "type": "string" }
+  },
+  "additionalProperties": false
+}
