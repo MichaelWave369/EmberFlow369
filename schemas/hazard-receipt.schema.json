@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MichaelWave369/EmberFlow369/schemas/hazard-receipt.schema.json",
+  "title": "EmberFlow369 Hazard Receipt",
+  "type": "object",
+  "required": ["id", "type", "createdAt", "zoneId", "claimTags", "confidence", "status", "summary"],
+  "properties": {
+    "id": { "type": "string" },
+    "type": {
+      "type": "string",
+      "enum": ["source", "risk", "action", "witness", "correction", "outcome"]
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "sourceObservedAt": { "type": ["string", "null"], "format": "date-time" },
+    "zoneId": { "type": "string" },
+    "sourceIds": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "claimTags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["official", "sensor", "forecast", "witness", "inferred", "estimated", "unknown", "disputed"]
+      }
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["unverified", "observed", "multi-source", "official-confirmed", "stale", "superseded"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "stale", "superseded", "disputed", "retracted"]
+    },
+    "summary": { "type": "string" },
+    "riskFactors": {
+      "type": ["object", "null"],
+      "properties": {
+        "hazard": { "type": "number", "minimum": 0 },
+        "exposure": { "type": "number", "minimum": 0 },
+        "vulnerability": { "type": "number", "minimum": 0 },
+        "timePressure": { "type": "number", "minimum": 0 },
+        "verifiedReadiness": { "type": "number", "exclusiveMinimum": 0 },
+        "score": { "type": "number", "minimum": 0 },
+        "state": { "type": "string", "enum": ["green", "yellow", "orange", "red", "black"] }
+      },
+      "additionalProperties": false
+    },
+    "supersedes": { "type": ["string", "null"] },
+    "supersededBy": { "type": ["string", "null"] }
+  },
+  "additionalProperties": false
+}
