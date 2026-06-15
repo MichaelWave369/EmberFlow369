@@ -1,4 +1,4 @@
-import type { ActionCard, HazardReceipt, HazardSignal, RiskResult } from './types';
+import type { ActionCard, HazardReceipt, HazardSignal, RiskResult } from './types.js';
 
 export function createHazardReceipt(
   signal: HazardSignal,
