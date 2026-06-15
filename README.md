@@ -26,16 +26,16 @@ Risk = Hazard x Exposure x Vulnerability x TimePressure / VerifiedReadiness
 
 The formula is deliberately simple for the first prototype. Every factor should be inspectable, explainable, logged, and improved through after-action review.
 
-## Current build: v0.3-alpha dashboard
+## Current build: v0.4-alpha receipt export dashboard
 
 The current runnable paths are:
 
 ```text
 mock hazard signal -> risk score -> action card -> receipt
-mock hazard signal -> visual dashboard card -> receipt/source tags
+mock hazard signal -> visual dashboard card -> receipt/source tags -> JSON export bundle
 ```
 
-The dashboard uses mock data only. The goal is to prove the local reasoning loop, action-card shape, and receipt visibility before connecting live public data sources.
+The dashboard uses mock data only. The goal is to prove the local reasoning loop, action-card shape, receipt visibility, and exportable evidence bundle before connecting live public data sources.
 
 ## Run the engine demo
 
@@ -58,7 +58,7 @@ npm install
 npm run dashboard
 ```
 
-The v0.3 dashboard renders mock Northern California hazard zones with:
+The v0.4 dashboard renders mock Northern California hazard zones with:
 
 - active signal cards
 - risk score and risk state
@@ -66,7 +66,25 @@ The v0.3 dashboard renders mock Northern California hazard zones with:
 - action-card steps
 - source tags
 - receipt IDs
+- a JSON receipt export button
 - safety boundary panel
+
+Use `npm run dashboard:build` to typecheck and build the dashboard.
+
+## What the receipt export contains
+
+The browser export is a prototype JSON evidence bundle. It includes:
+
+- bundle metadata and version
+- safety boundary text
+- action-card records
+- receipt records
+- risk score and risk state
+- source IDs
+- claim tags
+- raw mock signals
+
+This is not a signed ledger or official incident archive yet. It is the first UI-level proof that the cockpit can turn visible local risk cards into portable review artifacts.
 
 ## What EmberFlow369 is
 
@@ -81,6 +99,7 @@ EmberFlow369 is a repo-ready design and prototype foundation for:
 - receipt ledger records
 - post-fire to winter-flood continuity tracking
 - local dashboard visualization
+- exportable evidence bundles
 
 ## What EmberFlow369 is not
 
@@ -114,6 +133,7 @@ Official life-safety instructions must always override local suggestions and mod
 │       └── src/
 │           ├── App.tsx
 │           ├── demoData.ts
+│           ├── exportBundle.ts
 │           ├── main.tsx
 │           ├── styles.css
 │           └── vite-env.d.ts
@@ -128,7 +148,8 @@ Official life-safety instructions must always override local suggestions and mod
 │   ├── DATA_MODEL_v0.2.md
 │   ├── DASHBOARD_v0.3.md
 │   └── sprints/
-│       └── v0.3-alpha-dashboard.md
+│       ├── v0.3-alpha-dashboard.md
+│       └── v0.4-alpha-receipt-export.md
 ├── schemas/
 │   ├── action-card.schema.json
 │   ├── hazard-receipt.schema.json
@@ -160,9 +181,9 @@ See [`CLAIMS.md`](CLAIMS.md) and [`SAFETY.md`](SAFETY.md).
 
 ## Project status
 
-Current status: **v0.3-alpha dashboard prototype**
+Current status: **v0.4-alpha receipt export dashboard prototype**
 
-Next milestone: connect the dashboard to shared engine output and add JSON receipt export from the UI.
+Next milestone: connect the dashboard to the shared engine output package and add an in-app receipt viewer/diff before export.
 
 ## License
 
