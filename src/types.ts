@@ -11,6 +11,7 @@ export type ConfidenceState =
 export type ClaimTag =
   | 'official'
   | 'sensor'
+  | 'satellite'
   | 'forecast'
   | 'witness'
   | 'inferred'
@@ -27,6 +28,24 @@ export type OfficialStatus =
   | 'road_closure'
   | 'unknown';
 
+export type HazardKind =
+  | 'wildfire'
+  | 'smoke'
+  | 'flood'
+  | 'debris_flow'
+  | 'road'
+  | 'utility'
+  | 'weather';
+
+export type SignalSourceKind =
+  | 'official'
+  | 'sensor'
+  | 'satellite'
+  | 'forecast'
+  | 'witness'
+  | 'derived'
+  | 'mock';
+
 export type RiskInputs = {
   hazard: number;
   exposure: number;
@@ -42,11 +61,35 @@ export type RiskResult = {
   explanation: string[];
 };
 
+export type LocationZone = {
+  id: string;
+  label: string;
+  kind: 'home' | 'rv' | 'work' | 'family' | 'route' | 'community' | 'other';
+  county?: string | null;
+  notes?: string | null;
+};
+
+export type HazardSignal = {
+  id: string;
+  observedAt: string;
+  hazardKind: HazardKind;
+  zoneId: string;
+  summary: string;
+  sourceKind: SignalSourceKind;
+  sourceLabel: string;
+  sourceIds: string[];
+  claimTags: ClaimTag[];
+  confidence: ConfidenceState;
+  officialStatus: OfficialStatus;
+  metrics: RiskInputs;
+};
+
 export type ActionCard = {
   id: string;
   createdAt: string;
   expiresAt?: string | null;
   zoneId: string;
+  signalId: string;
   type: 'watch' | 'prepare' | 'avoid' | 'verify' | 'official_instruction' | 'after_action';
   riskState: RiskState;
   title: string;
@@ -65,6 +108,8 @@ export type HazardReceipt = {
   createdAt: string;
   sourceObservedAt?: string | null;
   zoneId: string;
+  signalId?: string | null;
+  actionCardId?: string | null;
   sourceIds: string[];
   claimTags: ClaimTag[];
   confidence: ConfidenceState;
