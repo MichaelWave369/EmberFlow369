@@ -1,4 +1,4 @@
-import type { ActionCard, HazardSignal, RiskResult } from './types';
+import type { ActionCard, HazardSignal, RiskResult } from './types.js';
 
 const SAFETY_DISCLAIMER =
   'EmberFlow369 is not an official alerting authority. Follow official emergency instructions, evacuation orders, road closures, and local public-safety guidance.';
