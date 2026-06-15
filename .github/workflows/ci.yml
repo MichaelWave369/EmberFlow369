@@ -19,11 +19,17 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies
+      - name: Install core dependencies
         run: npm install
 
-      - name: Typecheck
+      - name: Install dashboard dependencies
+        run: npm --prefix apps/dashboard install
+
+      - name: Typecheck core
         run: npm run typecheck
 
-      - name: Build
+      - name: Build core
         run: npm run build
+
+      - name: Build dashboard
+        run: npm run dashboard:build
