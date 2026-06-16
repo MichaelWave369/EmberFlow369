@@ -26,16 +26,35 @@ Risk = Hazard x Exposure x Vulnerability x TimePressure / VerifiedReadiness
 
 The formula is deliberately simple for the first prototype. Every factor should be inspectable, explainable, logged, and improved through after-action review.
 
-## Current build: v0.4-alpha receipt export dashboard
+## Current build: v0.5-alpha GitHub Pages dashboard
 
 The current runnable paths are:
 
 ```text
 mock hazard signal -> risk score -> action card -> receipt
 mock hazard signal -> visual dashboard card -> receipt/source tags -> JSON export bundle
+push to main -> build dashboard -> publish to GitHub Pages
 ```
 
-The dashboard uses mock data only. The goal is to prove the local reasoning loop, action-card shape, receipt visibility, and exportable evidence bundle before connecting live public data sources.
+The dashboard uses mock data only. The goal is to prove the local reasoning loop, action-card shape, receipt visibility, exportable evidence bundle, and public static deployment path before connecting live public data sources.
+
+## Live dashboard
+
+Expected GitHub Pages URL:
+
+```text
+https://michaelwave369.github.io/EmberFlow369/
+```
+
+If the page is not live yet, open the repository settings and set:
+
+```text
+Settings -> Pages -> Build and deployment -> Source -> GitHub Actions
+```
+
+Then push to `main` or run the `Deploy EmberFlow369 Dashboard to GitHub Pages` workflow manually.
+
+See [`docs/GITHUB_PAGES.md`](docs/GITHUB_PAGES.md).
 
 ## Run the engine demo
 
@@ -51,14 +70,14 @@ The demo prints wildfire, flood, burn-scar/debris-flow, and road-closure mock sc
 - recommended actions
 - an auditable hazard receipt
 
-## Run the dashboard
+## Run the dashboard locally
 
 ```bash
 npm install
 npm run dashboard
 ```
 
-The v0.4 dashboard renders mock Northern California hazard zones with:
+The v0.5 dashboard renders mock Northern California hazard zones with:
 
 - active signal cards
 - risk score and risk state
@@ -68,8 +87,10 @@ The v0.4 dashboard renders mock Northern California hazard zones with:
 - receipt IDs
 - a JSON receipt export button
 - safety boundary panel
+- GitHub Pages deploy workflow
 
 Use `npm run dashboard:build` to typecheck and build the dashboard.
+Use `npm run dashboard:preview` to preview the built dashboard locally.
 
 ## What the receipt export contains
 
@@ -100,6 +121,7 @@ EmberFlow369 is a repo-ready design and prototype foundation for:
 - post-fire to winter-flood continuity tracking
 - local dashboard visualization
 - exportable evidence bundles
+- public static dashboard deployment
 
 ## What EmberFlow369 is not
 
@@ -123,6 +145,10 @@ Official life-safety instructions must always override local suggestions and mod
 ├── DATA_SOURCES.md
 ├── ROADMAP.md
 ├── CONTRIBUTING.md
+├── .github/
+│   └── workflows/
+│       ├── ci.yml
+│       └── pages.yml
 ├── apps/
 │   └── dashboard/
 │       ├── README.md
@@ -147,9 +173,11 @@ Official life-safety instructions must always override local suggestions and mod
 │   ├── SPRINT_v0.2.md
 │   ├── DATA_MODEL_v0.2.md
 │   ├── DASHBOARD_v0.3.md
+│   ├── GITHUB_PAGES.md
 │   └── sprints/
 │       ├── v0.3-alpha-dashboard.md
-│       └── v0.4-alpha-receipt-export.md
+│       ├── v0.4-alpha-receipt-export.md
+│       └── v0.5-alpha-github-pages.md
 ├── schemas/
 │   ├── action-card.schema.json
 │   ├── hazard-receipt.schema.json
@@ -181,9 +209,9 @@ See [`CLAIMS.md`](CLAIMS.md) and [`SAFETY.md`](SAFETY.md).
 
 ## Project status
 
-Current status: **v0.4-alpha receipt export dashboard prototype**
+Current status: **v0.5-alpha GitHub Pages dashboard prototype**
 
-Next milestone: connect the dashboard to the shared engine output package and add an in-app receipt viewer/diff before export.
+Next milestone: add an in-app receipt viewer/diff so hosted users can inspect evidence bundles before downloading JSON.
 
 ## License
 
