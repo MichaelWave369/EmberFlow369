@@ -79,7 +79,7 @@ export function App() {
     <main className="dashboard-shell">
       <section className="hero-panel">
         <div>
-          <p className="eyebrow">EmberFlow369 v0.4-alpha</p>
+          <p className="eyebrow">EmberFlow369 v0.5-alpha GitHub Pages</p>
           <h1>Fire + Flood Resilience Cockpit</h1>
           <p className="hero-copy">
             A local-first visual demo of the EmberFlow369 loop: sense, fuse, localize, act, verify, and learn.
@@ -104,6 +104,7 @@ export function App() {
         <span>Action card</span>
         <span>Receipt</span>
         <span>Export bundle</span>
+        <span>GitHub Pages</span>
       </section>
 
       <section className="export-panel" aria-label="Receipt export">
